@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import jxl.Sheet;
 import jxl.Workbook;
 import phfi.GlobalMethods.GlobalMethods;
+import phfi.Scenarios.TakeScreenShots;
 import phfi.Scenarios.UploadExcelFile;
 import phfi.Scenarios.UploadPdfDocument;
 
@@ -25,11 +26,12 @@ public class executionclass {
 		GlobalMethods.LaunchBrowser(firefoxBrowser, URL);
 	}
 	
-	@Test
+	
+	/*@Test
 	public void UploadDocument() throws Exception{
 		UploadPdfDocument uplod = new UploadPdfDocument();
 		uplod.uploadDoc();
-	}
+	}*/
 	
 	/*@Test
 	public void UploadExeclDocument() throws Exception{
@@ -37,5 +39,13 @@ public class executionclass {
 		UEF.UploadExcelData();
 	}*/
 	
-
+	@Test
+	public void takescreenshots_Method() throws Exception{
+		TakeScreenShots ts = new TakeScreenShots();
+		ts.takescreenshot();
+		
+		
+	}
+	
+	
 }

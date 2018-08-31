@@ -1,25 +1,37 @@
 package phfi.GlobalMethods;
 
 import java.awt.AWTException;
+import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.internal.WrapsDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -69,10 +81,12 @@ public class GlobalMethods<var> {
 
 		GWait.Wait_GetElementById("txtUserName").sendKeys(UserName_Data);
 		WebElement sas = GWait.Wait_GetElementById("txtPassword");
+//		takeScreenshotElement(sas);
 		sas.sendKeys(Password_Data);
 		driver.findElement(By.id("ctl00_ContentPlaceHolder1_LoginButton")).click();
 
 	}
+	
 	
 	public static void Superadmin_Login() throws Exception {
 
@@ -186,5 +200,40 @@ public class GlobalMethods<var> {
 		}
 
 	}
+	
+	
+	public static void screenShot() throws IOException, InterruptedException {
+	    File scr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	    String filename =  new SimpleDateFormat("yyyyMMddhhmmss'.jpg'").format(new Date());
+	    File dest = new File("filePath/" + filename);
+	    FileUtils.copyFile(scr, dest);
+	}
+	
+	public static void takeScreenshotElement(WebElement element) throws IOException {
+	    WrapsDriver wrapsDriver = (WrapsDriver) element;
+	    File screenshot = ((TakesScreenshot) wrapsDriver.getWrappedDriver()).getScreenshotAs(OutputType.FILE);
+	    Rectangle rectangle = new Rectangle(element.getSize().width, element.getSize().height);
+	    Point location = element.getLocation();
+	    BufferedImage bufferedImage = ImageIO.read(screenshot);
+	    BufferedImage destImage = bufferedImage.getSubimage(location.x, location.y, rectangle.width, rectangle.height);
+	    ImageIO.write(destImage, "png", screenshot);
+	    File file = new File("filePath/to");
+	    FileUtils.copyFile(screenshot, file);
+	}
+	
+	 public static void screenShots() throws IOException, InterruptedException, Exception {
+		 Robot robot = new Robot();
+		 String filename =  new SimpleDateFormat("yyyyMMddhhmmss'.jpg'").format(new Date());
+		    BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+		    ImageIO.write(screenShot, "JPG", new File("filePath/" + filename));
+		    
+	       /* File scr=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	        File dest= new File("filePath/screenshot_"+timestamp()+".png");
+	        FileUtils.copyFile(scr, dest);*/
+	        Thread.sleep(3000);
+	    }
+	 public static String timestamp() {
+	        return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+	    }
 
 }

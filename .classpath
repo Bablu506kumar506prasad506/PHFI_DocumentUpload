@@ -32,5 +32,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="E:/selenium-2.53.0/org.springframework.beans-3.1.2.release.jar.zip"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
