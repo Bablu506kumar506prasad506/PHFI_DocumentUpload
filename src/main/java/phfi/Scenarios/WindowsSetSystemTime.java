@@ -21,7 +21,6 @@ public class WindowsSetSystemTime {
 	     * com.sun.jna.Library,
 	     */
 	    public interface Kernel32 extends StdCallLibrary {
-	    	
 
 	        boolean SetLocalTime(SYSTEMTIME st);
 
@@ -33,14 +32,14 @@ public class WindowsSetSystemTime {
 	        return Kernel32.instance.SetLocalTime(st);
 	    }
 
-	    public static boolean SetLocalTime(short wYear, short wMonth, short wDay, short wHour, short wMinute, short wSecond) {
+	    public static boolean SetLocalTime(short wYear, short wMonth, short wDay, short wHour, short wMinute) {
 	        SYSTEMTIME st = new SYSTEMTIME();
 	        st.wYear = wYear;
 	        st.wMonth = wMonth;
 	        st.wDay = wDay;
 	        st.wHour = wHour;
 	        st.wMinute = wMinute;
-	        st.wSecond = wSecond;
+//	        st.wSecond = wSecond;
 	        return SetLocalTime(st);
 	    }
 	

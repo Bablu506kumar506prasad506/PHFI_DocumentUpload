@@ -27,11 +27,12 @@ public class executionclass {
 	}
 	
 	
-	/*@Test
+	@Test
 	public void UploadDocument() throws Exception{
 		UploadPdfDocument uplod = new UploadPdfDocument();
 		uplod.uploadDoc();
-	}*/
+	}
+	
 	
 	/*@Test
 	public void UploadExeclDocument() throws Exception{
@@ -39,13 +40,13 @@ public class executionclass {
 		UEF.UploadExcelData();
 	}*/
 	
-	@Test
+	/*@Test
 	public void takescreenshots_Method() throws Exception{
 		TakeScreenShots ts = new TakeScreenShots();
 		ts.takescreenshot();
 		
 		
-	}
+	}*/
 	
 	
 }

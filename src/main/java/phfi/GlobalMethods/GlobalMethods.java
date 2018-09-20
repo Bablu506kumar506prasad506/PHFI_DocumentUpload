@@ -22,6 +22,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
@@ -76,8 +77,17 @@ public class GlobalMethods<var> {
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet r1 = wb.getSheet("LoginDetails");
 
+		//------For F103 study user details----// 
 		String UserName_Data = r1.getCell(2, 4).getContents();
 		String Password_Data = r1.getCell(3, 4).getContents();
+		
+		//------For FN0075 study user details----// 
+//		String UserName_Data = r1.getCell(2, 5).getContents();
+//		String Password_Data = r1.getCell(3, 5).getContents();
+		
+		//------For FN0098 study user details----// 
+//		String UserName_Data = r1.getCell(2, 6).getContents();
+//		String Password_Data = r1.getCell(3, 6).getContents();
 
 		GWait.Wait_GetElementById("txtUserName").sendKeys(UserName_Data);
 		WebElement sas = GWait.Wait_GetElementById("txtPassword");
@@ -85,6 +95,24 @@ public class GlobalMethods<var> {
 		sas.sendKeys(Password_Data);
 		driver.findElement(By.id("ctl00_ContentPlaceHolder1_LoginButton")).click();
 
+	}
+	
+	public static void alertaccept() throws Exception {
+
+		Alert al = driver.switchTo().alert();
+		String msgalert = al.getText();
+		al.accept();
+
+	}
+	public static void isAlertPresent() throws Exception {
+
+		try {
+			driver.switchTo().alert();
+			System.out.println(" Alert Present");
+			alertaccept();
+		} catch (NoAlertPresentException e) {
+			System.out.println("No Alert Present");
+		}
 	}
 	
 	

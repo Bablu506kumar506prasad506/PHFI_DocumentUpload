@@ -6,7 +6,7 @@
       <class name="phfi.Execution.executionclass">
         <methods>
           <include name="beforeMethod"/>
-          <include name="takescreenshots_Method"/>
+          <include name="UploadDocument"/>
         </methods>
       </class> <!-- phfi.Execution.executionclass -->
     </classes>
