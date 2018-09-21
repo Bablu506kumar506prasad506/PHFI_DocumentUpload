@@ -42,7 +42,7 @@ public class UploadPdfDocument {
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet r1 = wb.getSheet("LoginDetails");
 		Sheet r = wb.getSheet("Project&StudyDetails");
-		Sheet r2 = wb.getSheet("DocumetNameToUpload1");
+		Sheet r2 = wb.getSheet("20092018");
 		int rowacount = r1.getRows();
 		for (int i = 1; i < rowacount - 1; i++) {
 
@@ -55,7 +55,7 @@ public class UploadPdfDocument {
 //				if (webElement.getText().equalsIgnoreCase(StudyName_Data)) {
 //					ActiontoBeTaken.click();
 					Thread.sleep(3000);
-					GWait.Wait_GetElementByLinkText("DMS").click();
+					GWait.Wait_GetElementByXpath("(//a[contains(text(),'DMS')])[6]").click();
 
 					int rowacount2 = r2.getRows();
 					for (int j = 1; j < rowacount2; j++) {
@@ -72,12 +72,14 @@ public class UploadPdfDocument {
 						GWait.Wait_GetElementByXpath("//table[@id='rbtncatalogue']/tbody/tr[3]/td/label").click();
 						GWait.Wait_GetElementByXpath("//table[@id='rbtnVersion']/tbody/tr/td[2]/label").click();
 						GWait.Wait_GetElementByXpath("//table[@id='rbtnAccess']/tbody/tr/td[2]/label").click();
-//						GWait.Wait_GetElementByXpath("//table[@id='rbtnLocation']/tbody/tr/td[1]/label").click();
+						GWait.Wait_GetElementByXpath("//table[@id='rbtnLocation']/tbody/tr[2]/td/label").click();
 
 						//---File Upload through FTP---//
 						Thread.sleep(1000);
 						Select fileset = new Select(GWait.Wait_GetElementById("lstFiles"));
 						fileset.selectByVisibleText(DocumentName_Data);
+						Thread.sleep(500);
+						GWait.Wait_GetElementById("txtComments", 120).sendKeys(Comments_Data);
 						GWait.Wait_GetElementById("btnUpload", 120).click();
 						Thread.sleep(4000);
 						GlobalMethods.isAlertPresent();

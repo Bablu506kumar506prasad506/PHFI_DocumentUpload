@@ -78,8 +78,8 @@ public class GlobalMethods<var> {
 		Sheet r1 = wb.getSheet("LoginDetails");
 
 		//------For F103 study user details----// 
-		String UserName_Data = r1.getCell(2, 4).getContents();
-		String Password_Data = r1.getCell(3, 4).getContents();
+//		String UserName_Data = r1.getCell(2, 4).getContents();
+//		String Password_Data = r1.getCell(3, 4).getContents();
 		
 		//------For FN0075 study user details----// 
 //		String UserName_Data = r1.getCell(2, 5).getContents();
@@ -88,6 +88,10 @@ public class GlobalMethods<var> {
 		//------For FN0098 study user details----// 
 //		String UserName_Data = r1.getCell(2, 6).getContents();
 //		String Password_Data = r1.getCell(3, 6).getContents();
+		
+		//------For Wp7&8 study user details----// 
+		String UserName_Data = r1.getCell(2, 7).getContents();
+		String Password_Data = r1.getCell(3, 7).getContents();
 
 		GWait.Wait_GetElementById("txtUserName").sendKeys(UserName_Data);
 		WebElement sas = GWait.Wait_GetElementById("txtPassword");
