@@ -126,12 +126,13 @@ public class GlobalMethods<var> {
 		Workbook wb = Workbook.getWorkbook(fi);
 		Sheet r1 = wb.getSheet("LoginDetails");
 
-		String UserName_Data = r1.getCell(2, 2).getContents();
-		String Password_Data = r1.getCell(3, 2).getContents();
+		String UserName_Data = r1.getCell(2, 3).getContents();
+		String Password_Data = r1.getCell(3, 3).getContents();
 
 		GWait.Wait_GetElementById("txtUserName").sendKeys(UserName_Data);
 		WebElement sas = GWait.Wait_GetElementById("txtPassword");
 		sas.sendKeys(Password_Data);
+		screenShots();
 		driver.findElement(By.id("ctl00_ContentPlaceHolder1_LoginButton")).click();
 
 	}
@@ -237,7 +238,7 @@ public class GlobalMethods<var> {
 	public static void screenShot() throws IOException, InterruptedException {
 	    File scr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	    String filename =  new SimpleDateFormat("yyyyMMddhhmmss'.jpg'").format(new Date());
-	    File dest = new File("filePath/" + filename);
+	    File dest = new File("StudyScreenShots/" + filename);
 	    FileUtils.copyFile(scr, dest);
 	}
 	
@@ -257,7 +258,7 @@ public class GlobalMethods<var> {
 		 Robot robot = new Robot();
 		 String filename =  new SimpleDateFormat("yyyyMMddhhmmss'.jpg'").format(new Date());
 		    BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-		    ImageIO.write(screenShot, "JPG", new File("filePath/" + filename));
+		    ImageIO.write(screenShot, "JPG", new File("StudyScreenShots/" + filename));
 		    
 	       /* File scr=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	        File dest= new File("filePath/screenshot_"+timestamp()+".png");

@@ -9,14 +9,11 @@ import jxl.Sheet;
 import jxl.Workbook;
 import phfi.GlobalMethods.GlobalMethods;
 import phfi.Scenarios.RunCMDBatch;
-import phfi.Scenarios.TakeScreenShots;
-import phfi.Scenarios.UploadExcelFile;
-import phfi.Scenarios.UploadPdfDocument;
 
-public class executionclass {
+public class ScreenShotsExecution {
 	
 	@BeforeMethod
-	public void beforeMethod() throws Exception, Exception {
+	public void beforeMethod() throws Exception {
 
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/UploadDocument.xls");
 		Workbook wb = Workbook.getWorkbook(fi);
@@ -25,30 +22,14 @@ public class executionclass {
 		String URL = r1.getCell(0, 3).getContents();
 		String firefoxBrowser = r1.getCell(1, 2).getContents();
 		GlobalMethods.LaunchBrowser(firefoxBrowser, URL);
+		Thread.sleep(500);
+		GlobalMethods.screenShots();
 	}
 	
-	
-	/*@Test
-	public void UploadDocument() throws Exception{
-		UploadPdfDocument uplod = new UploadPdfDocument();
-		uplod.uploadDoc();
-	}*/
-	
-	
-	/*@Test
-	public void UploadExeclDocument() throws Exception{
-		UploadExcelFile UEF = new UploadExcelFile();
-		UEF.UploadExcelData();
-	}*/
-	
-	/*@Test
+	@Test
 	public void RunCMDBatch_Method() throws Exception{
 		RunCMDBatch rb = new RunCMDBatch();
-		rb.RunBatch();
-		
-		
-		
-	}*/
-	
-	
+		rb.RunBatch_DataMigrationSDI();
+	}
+
 }
