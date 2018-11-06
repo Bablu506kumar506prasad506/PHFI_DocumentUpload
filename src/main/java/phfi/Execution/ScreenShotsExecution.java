@@ -20,7 +20,7 @@ public class ScreenShotsExecution {
 		Sheet r1 = wb.getSheet("LoginDetails");
 
 		String URL = r1.getCell(0, 3).getContents();
-		String firefoxBrowser = r1.getCell(1, 2).getContents();
+		String firefoxBrowser = r1.getCell(1, 1).getContents();
 		GlobalMethods.LaunchBrowser(firefoxBrowser, URL);
 		Thread.sleep(500);
 		GlobalMethods.screenShots();

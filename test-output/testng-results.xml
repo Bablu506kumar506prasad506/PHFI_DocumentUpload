@@ -2,58 +2,26 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25317" started-at="2018-07-06T20:32:11Z" finished-at="2018-07-06T20:32:37Z">
+  <suite name="Default suite" duration-ms="165807" started-at="2018-11-06T07:14:32Z" finished-at="2018-11-06T07:17:18Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25317" started-at="2018-07-06T20:32:11Z" finished-at="2018-07-06T20:32:37Z">
-      <class name="phfi.Execution.ScreenShotsExecution">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:phfi.Execution.ScreenShotsExecution@343f4d3d]" name="beforeMethod" is-config="true" duration-ms="13784" started-at="2018-07-07T02:02:12Z" finished-at="2018-07-07T02:02:25Z">
+    <test name="Default test" duration-ms="165807" started-at="2018-11-06T07:14:32Z" finished-at="2018-11-06T07:17:18Z">
+      <class name="phfi.Execution.DMSUploadExecution">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:phfi.Execution.DMSUploadExecution@7193666c]" name="beforeMethod" is-config="true" duration-ms="21107" started-at="2018-11-06T12:44:32Z" finished-at="2018-11-06T12:44:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="RunCMDBatch_Method()[pri:0, instance:phfi.Execution.ScreenShotsExecution@343f4d3d]" name="RunCMDBatch_Method" duration-ms="10480" started-at="2018-07-07T02:02:25Z" finished-at="2018-07-07T02:02:36Z">
-          <exception class="org.openqa.selenium.WebDriverException">
+        <test-method status="FAIL" signature="DMSUploadDatav3_M()[pri:0, instance:phfi.Execution.DMSUploadExecution@7193666c]" name="DMSUploadDatav3_M" duration-ms="137923" started-at="2018-11-06T12:44:53Z" finished-at="2018-11-06T12:47:11Z">
+          <exception class="java.lang.ArrayIndexOutOfBoundsException">
             <message>
-              <![CDATA[chrome not reachable
-  (Session info: chrome=69.0.3497.100)
-  (Driver info: chromedriver=2.37.543627 (63642262d9fb93fb4ab52398be4286d844092a5e),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 4.03 seconds
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'bablukumar', ip: '20.0.0.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_161'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.37.543627 (63642262d9fb93fb4ab52398be4286d844092a5e), userDataDir=C:\Users\bablu.p\AppData\Local\Temp\scoped_dir13476_1627}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=69.0.3497.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
-Session ID: 69f71c8277be7722b82501203bfb1066
-*** Element info: {Using=id, value=txtUserName}]]>
+              <![CDATA[14]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=69.0.3497.100)
-  (Driver info: chromedriver=2.37.543627 (63642262d9fb93fb4ab52398be4286d844092a5e),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 4.03 seconds
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'bablukumar', ip: '20.0.0.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_161'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.37.543627 (63642262d9fb93fb4ab52398be4286d844092a5e), userDataDir=C:\Users\bablu.p\AppData\Local\Temp\scoped_dir13476_1627}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=69.0.3497.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
-Session ID: 69f71c8277be7722b82501203bfb1066
-*** Element info: {Using=id, value=txtUserName}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
-	at org.openqa.selenium.By$ById.findElement(By.java:218)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at phfi.GlobalMethods.GlobalWait$2.apply(GlobalWait.java:66)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
-	at phfi.GlobalMethods.GlobalWait.Wait_GetElementById(GlobalWait.java:63)
-	at phfi.GlobalMethods.GlobalMethods.Superadmin_Login(GlobalMethods.java:132)
-	at phfi.Scenarios.Studydatapreview.StudyDataPreviewM(Studydatapreview.java:46)
-	at phfi.Scenarios.RunCMDBatch.RunBatch_DataMigrationSDI(RunCMDBatch.java:41)
-	at phfi.Execution.ScreenShotsExecution.RunCMDBatch_Method(ScreenShotsExecution.java:32)
+              <![CDATA[java.lang.ArrayIndexOutOfBoundsException: 14
+	at jxl.read.biff.SheetImpl.getCell(SheetImpl.java:356)
+	at phfi.Scenarios.DMSDataUploadV3.CreateSubFolders(DMSDataUploadV3.java:95)
+	at phfi.Scenarios.DMSDataUploadV3.DMSUploadMethod(DMSDataUploadV3.java:53)
+	at phfi.Execution.DMSUploadExecution.DMSUploadDatav3_M(DMSUploadExecution.java:45)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -81,11 +49,11 @@ Session ID: 69f71c8277be7722b82501203bfb1066
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- java.lang.ArrayIndexOutOfBoundsException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- RunCMDBatch_Method -->
-      </class> <!-- phfi.Execution.ScreenShotsExecution -->
+        </test-method> <!-- DMSUploadDatav3_M -->
+      </class> <!-- phfi.Execution.DMSUploadExecution -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

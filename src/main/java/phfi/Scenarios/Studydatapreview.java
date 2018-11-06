@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -28,13 +29,13 @@ public class Studydatapreview {
 	Actions action = new Actions(GlobalMethods.driver);
 	
 	public void StudyDataPreviewM() throws Exception {
-		
-		for (int b = 1; b < 10; b++) {
+		int b = 2;
+//		for (int b = 1; b < 10; b++) {
 			
 			Runtime runtime = null;
 	        try{
 	        	//cmd.exe /C start \"start hub\" \"C:\\BatchFiles\\START HUB.bat\
-	        	Runtime.getRuntime().exec("cmd.exe /C start \"start hub\" \"C:\\BatchFiles\\STARTHUB"+b+"\"");
+	        	Runtime.getRuntime().exec("cmd.exe /C start \"start hub\" \"C:\\BatchFiles\\STARTHUB1 (1) - Shortcut\"");
 	        	Thread.sleep(3000);
 //	        	Runtime.getRuntime().exec("C:\\AutoITScripts\\CompileAutoIT\\ClickAdmin.exe");
 //	        	Runtime.getRuntime().exec("runas /profile /user:Administrator \"cmd.exe /C start \"start hub\"\"C:\\BatchFiles\\STARTHUB.bat\"");
@@ -44,7 +45,7 @@ public class Studydatapreview {
 	        }
 	        
 			GlobalMethods.Superadmin_Login();
-
+			
 			GlobalMethods.screenShots();
 
 			Thread.sleep(3000);
@@ -65,11 +66,11 @@ public class Studydatapreview {
 
 			int Rowcount = st.getRows();
 			System.out.println("No of rows: " + Rowcount);
-			for (int i = 1; i < Rowcount; i++) {
+			for (int i = 1; i <= Rowcount; i++) {
 				
 				 try{
 			        	//cmd.exe /C start \"start hub\" \"C:\\BatchFiles\\START HUB.bat\
-			        	Runtime.getRuntime().exec("cmd.exe /C start \"start hub\" \"C:\\BatchFiles\\STARTHUB"+b+"\"");
+			        	Runtime.getRuntime().exec("cmd.exe /C start \"start hub\" \"C:\\BatchFiles\\STARTHUB1 ("+b+") - Shortcut\"");
 			        	Thread.sleep(3000);
 //			        	Runtime.getRuntime().exec("C:\\AutoITScripts\\CompileAutoIT\\ClickAdmin.exe");
 //			        	Runtime.getRuntime().exec("runas /profile /user:Administrator \"cmd.exe /C start \"start hub\"\"C:\\BatchFiles\\STARTHUB.bat\"");
@@ -106,11 +107,26 @@ public class Studydatapreview {
 				element11.click();
 				GlobalMethods.screenShots();
 				GlobalMethods.screenShots();
+				ExcelCOMP();
+				b++;
 				
 			}
 			
-		}
+//		}
 		
 	}
+	
+	public void ExcelCOMP() throws Exception {
+		
+		
+	        	
+	        	try {
+					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Microsoft Office\\Office16\\DCF\\SPREADSHEETCOMPARE.exe");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        	Thread.sleep(3000);
+	        }
 
 }

@@ -54,8 +54,8 @@ public class GlobalMethods<var> {
 
 	public static void LaunchBrowser(String browserName, String Url) {
 		if (browserName.equals("firefox")) {
-			System.setProperty("webdriver.firefox.driver",
-					System.getProperty("user.dir") + "/src/main/resources/win/geckodriver.exe");
+			/*System.setProperty("webdriver.firefox.driver",
+					System.getProperty("user.dir") + "/src/main/resources/win/geckodriver.exe");*/
 			driver = new FirefoxDriver();
 		} else if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
@@ -101,6 +101,24 @@ public class GlobalMethods<var> {
 
 	}
 	
+	public static void PI_LoginForDMSUpload() throws Exception {
+
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/DMSDataUpload.xls");
+		Workbook wb = Workbook.getWorkbook(fi);
+		Sheet r1 = wb.getSheet("LoginDetails");
+
+		//------For F103 study user details----// 
+		String UserName_Data = r1.getCell(2, 1).getContents();
+		String Password_Data = r1.getCell(3, 1).getContents();
+		
+		GWait.Wait_GetElementById("txtUserName").sendKeys(UserName_Data);
+		WebElement sas = GWait.Wait_GetElementById("txtPassword");
+//		takeScreenshotElement(sas);
+		sas.sendKeys(Password_Data);
+		driver.findElement(By.id("ctl00_ContentPlaceHolder1_LoginButton")).click();
+
+	}
+	
 	public static void alertaccept() throws Exception {
 
 		Alert al = driver.switchTo().alert();
@@ -117,6 +135,28 @@ public class GlobalMethods<var> {
 		} catch (NoAlertPresentException e) {
 			System.out.println("No Alert Present");
 		}
+	}
+	
+	public static void AcceptDoenloadPopup() throws Exception {
+
+		Thread.sleep(2000);
+
+		Robot r = new Robot();
+
+		// A short pause, just to be sure that OK is selected
+		Thread.sleep(3000);
+
+		r.keyPress(KeyEvent.VK_ALT);
+		r.keyPress(KeyEvent.VK_S);
+		r.keyRelease(KeyEvent.VK_S);
+		r.keyRelease(KeyEvent.VK_ALT);
+
+		System.out.println("Select Save As Option");
+
+		r.keyPress(KeyEvent.VK_ENTER);
+		r.keyRelease(KeyEvent.VK_ENTER);
+
+		System.out.println("Enter Key is pressed");
 	}
 	
 	
@@ -143,6 +183,11 @@ public class GlobalMethods<var> {
 		js.executeScript(
 				"window.scrollTo(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight, document.documentElement.clientHeight));");
 
+	}
+	
+	public static void scrollToElement(WebElement element) {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 	
 	
