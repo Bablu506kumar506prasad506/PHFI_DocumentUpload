@@ -10,6 +10,7 @@ import jxl.Workbook;
 import phfi.GlobalMethods.GlobalMethods;
 import phfi.Scenarios.DMSDataUpload;
 import phfi.Scenarios.DMSDataUploadV3;
+import phfi.Scenarios.DMSDataUploadV4;
 import phfi.Scenarios.DMSDataUploadsV2;
 
 public class DMSUploadExecution {
@@ -22,7 +23,7 @@ public class DMSUploadExecution {
 		Sheet r1 = wb.getSheet("LoginDetails");
 
 		String URL = r1.getCell(0, 1).getContents();
-		String firefoxBrowser = r1.getCell(1, 1).getContents();
+		String firefoxBrowser = r1.getCell(1, 2).getContents();
 		GlobalMethods.LaunchBrowser(firefoxBrowser, URL);
 		Thread.sleep(500);
 		GlobalMethods.screenShots();
@@ -39,10 +40,16 @@ public class DMSUploadExecution {
 		DMSDv2.DMSUploadMethod();
 	}*/
 	
-	@Test
+	/*@Test
 	public void DMSUploadDatav3_M() throws Exception {
 		DMSDataUploadV3 DMSDv3 = new DMSDataUploadV3();
 		DMSDv3.DMSUploadMethod();
+	}*/
+	
+	@Test
+	public void DMSUploadDatav4_M() throws Exception {
+		DMSDataUploadV4 DMSDv4 = new DMSDataUploadV4();
+		DMSDv4.DMSUploadMethod();
 	}
 
 }

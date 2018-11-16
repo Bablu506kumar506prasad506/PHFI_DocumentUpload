@@ -5,8 +5,8 @@
     <classes>
       <class name="phfi.Execution.DMSUploadExecution">
         <methods>
+          <include name="DMSUploadDatav4_M"/>
           <include name="beforeMethod"/>
-          <include name="DMSUploadDatav3_M"/>
         </methods>
       </class> <!-- phfi.Execution.DMSUploadExecution -->
     </classes>
